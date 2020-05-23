@@ -4,8 +4,10 @@
         color: '#a6bbcf',
         defaults: {
             name: {value:""},
-            writekey: {value:""},
             fieldid: {value:""}
+        },
+        credentials: {
+            writekey: {type:"password", required:true}
         },
         inputs:1,
         outputs:0,
@@ -23,7 +25,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-writekey"><i class="icon-tag"></i> Write Key</label>
-        <input type="text" id="node-input-writekey" placeholder="ABCDEF1234567">
+        <input type="password" id="node-input-writekey" placeholder="ABCDEF1234567">
     </div>
     <div class="form-row">
         <label for="node-input-fieldid"><i class="icon-tag"></i> Field ID</label>

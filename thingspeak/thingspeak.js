@@ -6,7 +6,7 @@ module.exports = function(RED) {
     var node = this;
     this.on('input', function(msg) {
       https.get(
-        "https://api.thingspeak.com/update?api_key="+config.writekey+"&field"+config.fieldid+"="+msg.payload,
+        "https://api.thingspeak.com/update?api_key="+this.credentials.writekey+"&field"+config.fieldid+"="+msg.payload,
         function(response) {
           if(response.statusCode == 200){
             node.log("OK");
@@ -17,5 +17,5 @@ module.exports = function(RED) {
       );
     });
   }
-  RED.nodes.registerType("ThingspeakSendSimple", ThingspeakSendSimple);
+  RED.nodes.registerType("ThingspeakSendSimple", ThingspeakSendSimple, {credentials: {writekey:{type:"password",required:true}}});
 }
